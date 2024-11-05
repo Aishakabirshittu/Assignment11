@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event handling</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <form>
+        <input id="inputField" type="text" placeholder="Focus on me!">
+        <input type="text" placeholder="Field 1">
+        <input type="text" placeholder="Field 2">
+        <button type="submit">Submit</button>
+        <select id="myDropdown">
+            <option value="">Select an option</option>
+            <option value="option 1">option 1</option>
+            <option value="option 2">option 2</option>
+            <option value="option 3"> option 3</option>
+        </select>
+    </form>
+    <h1>Event Delegation Example</h1>
+    <button id="addButton">Add Item</button>
+    <ul>
+        <!--New list will be added here-->
+    </ul>
+    <a href="https://www.example.com" id="myLink">Click Me</a>
+    <div id="Parent" style="padding: 20px; border: 1px solid black;">
+        Parent Div
+        <p id="child" style="padding: 20px; border: 1px solid red;">Child Paragragh</p>
+    </div>
+    <form>
+        <input type="text" id="textInput" placeholder="Toggle me!" disabled>
+        <button id="toggleButton">Enable Input</button>
+    </form>
+    <div id="buttonContainer">
+        <button>Button 1</button>
+        <button>Button 2</button>
+    </div>
+    <button onclick="addButton()">Add <Button></Button></button>
+    <form id="myForm">
+        <input type="email" id="emailInput" placeholder="Enter your emali" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
