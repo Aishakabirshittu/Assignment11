@@ -5,7 +5,7 @@ const child = document.getElementById('child');
 // Adding event listener to the parent element in the capturing phase
 parent.addEventListener('click', (event) => {
     console.log('Parent element clicked - capturing phase');
-}, true); // `true` indicates capturing phase
+}, true); // indicates capturing phase
 
 // Adding event listener to the child element in the capturing phase
 child.addEventListener('click', (event) => {

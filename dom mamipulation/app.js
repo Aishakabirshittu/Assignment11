@@ -40,7 +40,7 @@ githubLinkButton.addEventListener('click', () => {
 // E) //question 5
 // 1. Select the <a> element with id "github-link"
 const githubLink = document.getElementById('github-link');
-// 2. Retrieve the href attribute value
+// 2. Get the href attribute value
 const hrefValue = githubLink.getAttribute('href');
 // 3. Print the href value
 console.log(hrefValue);

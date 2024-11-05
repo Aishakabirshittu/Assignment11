@@ -9,22 +9,23 @@ inputField.addEventListener('focus', () => {
 
 
 // // question 2
-// 1. Get references to the button and the <ul> element
-const addButton = document.getElementById('addButton');
 const itemList = document.getElementById('itemList');
+const addButton = document.getElementById('addButton');
 
-// 2. Add a click event listener to the "addButton"
+// Add an event listener to the button that adds a new <li> to the <ul> when clicked
 addButton.addEventListener('click', () => {
     // Create a new <li> element
     const newItem = document.createElement('li');
+    // Set the text content for the new item
     newItem.textContent = `Item ${itemList.children.length + 1}`;
-    // Append the new <li> to the <ul> with id "itemList"
+    // Append the new item to the list
     itemList.appendChild(newItem);
 });
 
-// 3. Add a click event listener to the "itemList" <ul> for all <li> items
+// Use event delegation on the <ul> to handle clicks on <li> elements
+//including newly added ones
 itemList.addEventListener('click', (event) => {
-    // Check if the clicked element is a <li>
+    // Check if the clicked element is an <li>
     if (event.target.tagName === 'LI') {
         // Log the text content of the clicked <li> to the console
         console.log(`Clicked on ${event.target.textContent}`);
@@ -33,28 +34,41 @@ itemList.addEventListener('click', (event) => {
 
 
 
+
 // // question 3
 const form = document.getElementsByTagName('form')[0];
+
+//Add an event listener for the 'submit' event
 form.addEventListener('submit', (event) => {
+    // Prevent the form from submitting by default
     event.preventDefault();
-    const inputs = form.querySelectorAll('input[type="text"]');
-    let allFilled = true;
 
-    inputs.forEach(input => {
-        if (input.value.trim() === '') {
-            allFilled = false;
-            input.style.borderColor = "red";
+    //Get all input fields within the form
+    const inputs = form.getElementsByTagName('input');
+    let allFieldsFilled = true;
+
+    //Loop through each input field to check if it's empty
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() === '') {
+            // If any input is empty, change border color and set allFieldsFilled to 
+            //false
+            inputs[i].style.borderColor = "red";
+            allFieldsFilled = false;
         } else {
-            input.style.borderColor = "initial";
+            // Reset border color if field is not empty
+            inputs[i].style.borderColor = "";
         }
-    });
+    }
 
-    if (!allFilled) {
-        console.log("Please fill in all fields.");
+    //Display a message if there are empty fields
+    if (!allFieldsFilled) {
+        alert("Please fill in all fields.");
     } else {
-        console.log("Form submitted successfully.");
+        alert("Form submitted successfully.");
     }
 });
+
+
 
 
 // question 4
@@ -120,7 +134,7 @@ const emailForm = document.getElementById('myForm');
 emailForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    // Basic validation: check if the input includes "@" and "."
+    //check if the input includes "@" and "."
     if (!emailInput.value.includes('@') || !emailInput.value.includes('.')) {
         emailInput.setCustomValidity("Please enter a valid email address.");
     } else {
